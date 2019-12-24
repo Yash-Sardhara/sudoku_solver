@@ -1,6 +1,8 @@
 from math import sqrt
+from time import time
 
 SIZE = 9
+'''
 SUDOKU_BOARD = [[1, 0, 6, 0, 0, 2, 3, 0, 0],
                 [0, 5, 0, 0, 0, 6, 0, 9, 1],
                 [0, 0, 9, 5, 0, 1, 4, 6, 2],
@@ -10,7 +12,17 @@ SUDOKU_BOARD = [[1, 0, 6, 0, 0, 2, 3, 0, 0],
                 [0, 0, 0, 2, 6, 0, 5, 4, 0],
                 [0, 0, 4, 1, 5, 0, 6, 0, 9],
                 [9, 0, 0, 8, 7, 4, 2, 1, 0]]
+'''
 
+SUDOKU_BOARD = [[8, 0, 0, 4, 0, 6, 0, 0, 7],
+                [0, 0, 0, 0, 0, 0, 4, 0, 0],
+                [0, 1, 0, 0, 0, 0, 6, 5, 0],
+                [5, 0, 9, 0, 3, 0, 7, 8, 0],
+                [0, 0, 0, 0, 7, 0, 0, 0, 0],
+                [0, 4, 8, 0, 2, 0, 1, 0, 3],
+                [0, 5, 2, 0, 0, 0, 0, 9, 0],
+                [0, 0, 1, 0, 0, 0, 0, 0, 0],
+                [3, 0, 0, 9, 0, 2, 0, 0, 5]]
 
 def check_row(board, row, column):
     for i in range(SIZE):
@@ -89,12 +101,13 @@ def print_board(board):
 
 
 def execute():
+    start_time = time()
     solved_board = SUDOKU_BOARD
     search_solve(solved_board, [0, 0])
     print_board(SUDOKU_BOARD)
     print()
     print_board(solved_board)
+    print("Execution Time: ", time()-start_time)
 
 
 execute()
-
